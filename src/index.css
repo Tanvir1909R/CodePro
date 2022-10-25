@@ -18,6 +18,8 @@ body{
   padding: 0 calc((100vw - 1300px)/2);
 }
 
+
+/*--------------------------------- nav active --------------------- */
 .active{
    color: var(--themeColor);
    position: relative;
@@ -30,4 +32,27 @@ body{
   left: 0;
   background-color: var(--themeColor);
 
+}
+
+
+/* ---------------courses css--------------------------  */
+
+.courseWrapper{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+.course {
+  border: 1px solid var(--headingColor);
+  border-radius: 8px;
+}
+
+.courseImg {
+  text-align: center;
+}
+
+.courseImg img{
+  width: 60%;
+  height: 100%;
+  object-fit: cover;
 }

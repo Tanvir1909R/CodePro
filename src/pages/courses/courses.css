@@ -1,0 +1,10 @@
+.coursesWrapper{
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    padding: 3rem 1rem;
+}
+
+.coursesNav{
+    position: sticky;
+    top: 92px;
+}
