@@ -5,6 +5,7 @@
 }
 :root{
   --headingColor:#212742;
+  --themeColor: #F7DE01;
 }
 a{
   text-decoration: none;
@@ -18,7 +19,7 @@ body{
 }
 
 .active{
-   color: #F7DE01;
+   color: var(--themeColor);
    position: relative;
 }.active::after{
   content: '';
@@ -27,6 +28,6 @@ body{
   position: absolute;
   bottom: 0;
   left: 0;
-  background-color: #F7DE01;
+  background-color: var(--themeColor);
 
 }
