@@ -19,7 +19,7 @@ const Allcourses = () => {
     <div className='courseWrapper'>
       {
         loading ?
-        <p>loading......</p>
+        <p>loading...</p>
         :
         courses.map(course => <Course key={course.id} course={course} />)
       }

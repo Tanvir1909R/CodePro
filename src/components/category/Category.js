@@ -6,7 +6,7 @@ const Category = ({category}) => {
     console.log(category);
   return (
     <div className='category'>
-        <Link>{category.category}</Link>
+        <Link to={`/courses/${category.category}`}>{category.category}</Link>
     </div>
   )
 } 

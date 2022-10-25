@@ -1,3 +1,4 @@
 .category{
     padding: .5rem;
+    text-transform: capitalize;
 }

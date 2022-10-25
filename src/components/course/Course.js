@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Course = ({course}) => {
   return (
@@ -8,6 +9,12 @@ const Course = ({course}) => {
         </div>
         <div className="courseDesc">
           <h3>{course.name}</h3>
+          {
+            course.description.length > 100 ?
+            <p> {course.description.slice(0,100) + '...'} <Link>Read more</Link> </p>
+            :
+            <p>{course.description}</p>
+          }
         </div>
     </div>
   )

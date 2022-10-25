@@ -8,6 +8,7 @@ import Blog from './pages/Blog'
 import Login from './pages/loginAndRegister/Login'
 import Register from './pages/loginAndRegister/Register'
 import Allcourses from './components/allcourses/Allcourses'
+import FrontEnd from './pages/FrontEnd'
 
 
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
           <Route path='/' element={ <Home/> } />
           <Route path='/courses/*' element={ <Courses/> }>
               <Route path='all' element={ <Allcourses/> } />
+              <Route path='front-end' element={ <FrontEnd/> } />
           </Route>
           <Route path='/faq' element={ <Faq/> } />
           <Route path='/blog' element={ <Blog /> } />
