@@ -6,6 +6,7 @@ import Courses from './pages/courses/Courses'
 import Faq from './pages/faq/Faq'
 import Blog from './pages/Blog'
 import Login from './pages/loginAndRegister/Login'
+import Register from './pages/loginAndRegister/Register'
 
 
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
           <Route path='/faq' element={ <Faq/> } />
           <Route path='/blog' element={ <Blog /> } />
           <Route path='/login' element={ <Login/> } />
+          <Route path='/register' element={ <Register/> }/>
         </Routes>
       </main>
     </>
