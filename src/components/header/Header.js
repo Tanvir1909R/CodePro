@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import './header.css'
 
 const Header = () => {
@@ -7,16 +7,20 @@ const Header = () => {
     <header>
         <div className="container">
           <div className="headerWrapper">
-            <div className="logo">Code.Pro</div>
+            <div className="logo">
+              <Link to='/'><span>Code.</span>Pro</Link>
+            </div>
             <nav>
-              <NavLink to='/'>Home</NavLink>
+              <NavLink to='/' end>Home</NavLink>
               <NavLink to='/courses'>Courses</NavLink>
               <NavLink to='/faq'>FAQ</NavLink>
               <NavLink to='/blog'>Blog</NavLink>
             </nav>
             <div className="profile">
-              <div className="profileImg">
-                <img src="" alt="" />
+              <div className="toggleProfile">
+              <div className="profileImg" title='luffy'>
+                <img src="./img/luffy.png" alt="" />
+              </div>
               </div>
               <div className="themeBtn">
                   <div className="line">
