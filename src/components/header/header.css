@@ -13,7 +13,7 @@
     font-size: clamp(1.8rem, 5vw, 2.5rem);
 }
 .logo a{
-    color: #F7DE01;
+    color: var(--themeColor);
 }
 .logo span{
     font-weight: 800;

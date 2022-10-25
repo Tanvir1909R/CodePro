@@ -5,6 +5,7 @@ import Home from './pages/home/Home'
 import Courses from './pages/courses/Courses'
 import Faq from './pages/faq/Faq'
 import Blog from './pages/Blog'
+import Login from './pages/loginAndRegister/Login'
 
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
           <Route path='/courses' element={ <Courses/> } />
           <Route path='/faq' element={ <Faq/> } />
           <Route path='/blog' element={ <Blog /> } />
+          <Route path='/login' element={ <Login/> } />
         </Routes>
       </main>
     </>
