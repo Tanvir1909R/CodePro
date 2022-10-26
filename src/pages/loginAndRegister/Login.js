@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import {FcGoogle} from 'react-icons/fc'
 import {BsGithub} from 'react-icons/bs'
@@ -8,6 +8,7 @@ import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 
 const Login = () => {
   const { providerLogin, logIn } = useContext(authContext);
+  const [error, setError] = useState('')
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || '/'
@@ -33,10 +34,10 @@ const Login = () => {
 
     logIn(email, password)
     .then(res => {
-      console.log(res.user)
       navigate(from, {replace:true})
+      setError('')
     })
-    .catch(e => console.log(e.message))
+    .catch(e => setError(e.message))
   }
 
   return (
@@ -46,15 +47,17 @@ const Login = () => {
           <form onSubmit={handleLogin}>
             <h1>Login</h1>
             <div className="inputFiled">
-              <input type="email" placeholder="Enter email" name="email" />
+              <input type="email" placeholder="Enter email" name="email" required />
               <input
                 type="password"
                 placeholder="Enter password"
                 name="password"
+                required
               />
             </div>
             <div className="submit">
               <p>Forgot Password</p>
+              <strong>{error}</strong>
               <button>Login</button>
               <p className="createAccount">
                 Don't have an account?

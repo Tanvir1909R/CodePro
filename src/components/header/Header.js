@@ -1,12 +1,14 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { authContext } from "../../contexts/UserContext";
 import { AiOutlineBars } from 'react-icons/ai'
 import {BiLogOut} from 'react-icons/bi'
+import {BsLightbulb, BsLightbulbFill} from 'react-icons/bs'
 import "./header.css";
 
 const Header = () => {
   const { user, logOut } = useContext(authContext);
+  const [dark, setDark] = useState(false)
   const nav = useRef(null)
   const handleNav = ()=>{
     nav.current.classList.toggle('navActive')
@@ -15,6 +17,10 @@ const Header = () => {
   const handleLogOut = ()=>{
     logOut()
     .catch(e => console.log(e.message))
+  }
+
+  const handleDark = ()=>{
+    setDark(!dark)
   }
 
   return (
@@ -53,7 +59,14 @@ const Header = () => {
             </div>
             <div className="themeBtn">
               <div className="line">
-                <div className="switch">G</div>
+                <div className="switch" onClick={handleDark}>
+                  {
+                    dark ?
+                    <BsLightbulbFill/>
+                    :
+                    <BsLightbulb />
+                  }
+                </div>
               </div>
             </div>
             <div className="bar" onClick={handleNav}>
