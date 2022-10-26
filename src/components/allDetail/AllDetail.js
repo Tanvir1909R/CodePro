@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { AiOutlineDownload } from 'react-icons/ai'
 
 const AllDetail = () => {
@@ -26,6 +26,9 @@ const AllDetail = () => {
                 <div className="courseBody">
                     <h1>{course.name}</h1>
                     <p>{course.description}</p>
+                    <div style={{ margin:'30px 0' }}>
+                    <Link to={`/checkout/${course.id}`}>Get premium access</Link>
+                    </div>
                 </div>
             </div>
         </div>

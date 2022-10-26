@@ -14,6 +14,8 @@ import FullStack from './pages/FullStack'
 import AppDev from './pages/AppDev'
 import GameDev from './pages/GameDev'
 import AllDetail from './components/allDetail/AllDetail'
+import CheckOut from './pages/checkout/CheckOut'
+import PrivateRoute from './components/PrivateRoute'
 
 
 const App = () => {
@@ -36,6 +38,7 @@ const App = () => {
           <Route path='/blog' element={ <Blog /> } />
           <Route path='/login' element={ <Login/> } />
           <Route path='/register' element={ <Register/> }/>
+          <Route path='/checkout/:id' element={ <PrivateRoute> <CheckOut/> </PrivateRoute> }/>
         </Routes>
       </main>
     </>

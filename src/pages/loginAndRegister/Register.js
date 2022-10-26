@@ -1,9 +1,10 @@
 import React, { useContext } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { authContext } from '../../contexts/UserContext'
 
 const Register = () => {
   const { createUser, updateUser } = useContext(authContext);
+  const navigate = useNavigate()
 
   const updatePro = (name, url)=>{
     const info = {
@@ -25,8 +26,8 @@ const Register = () => {
 
     createUser(email, password)
     .then(res =>{
-      console.log(res.user);
-      updatePro(name, url)
+      updatePro(name, url);
+      navigate('/')
     })
     .catch(e => console.log(e.message))
   }
