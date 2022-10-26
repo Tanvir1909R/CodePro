@@ -1,10 +1,25 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import {FcGoogle} from 'react-icons/fc'
 import {BsGithub} from 'react-icons/bs'
 import "./common.css";
+import { authContext } from "../../contexts/UserContext";
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 
 const Login = () => {
+  const { providerLogin } = useContext(authContext);
+  const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider()
+  const handleGoogleLogin = ()=>{
+    providerLogin(googleProvider)
+    .then(res => console.log(res.user))
+    .catch(e => console.log(e.message))
+  }
+  const handleGithubLogin = ()=>{
+    providerLogin(githubProvider)
+    .then(res => console.log(res.user))
+    .catch(e => console.log(e.message))
+  }
   return (
     <section>
       <div className="container">
@@ -35,7 +50,7 @@ const Login = () => {
               <div className="line"></div>
             </div>
             <div className="otherLogin">
-              <div className="types">
+              <div className="types" onClick={handleGoogleLogin}>
                 <div className="typeImg">
                     <FcGoogle />
                 </div>
@@ -43,7 +58,7 @@ const Login = () => {
                     Continue With Google 
                 </div>
               </div>
-              <div className="types">
+              <div className="types" onClick={handleGithubLogin}>
                 <div className="typeImg">
                 <BsGithub />
                 </div>

@@ -10,7 +10,7 @@ const AllDetail = () => {
         fetch(`https://learning-platform-server-sage.vercel.app/courses/${id}`)
         .then(res => res.json())
         .then(data =>setCourse(data))
-    }, [])
+    }, [id])
     
 
   return (

@@ -7,7 +7,6 @@ import "./header.css";
 const Header = () => {
   const { user } = useContext(authContext);
   const nav = useRef(null)
-  console.log(user.name);
   const handleNav = ()=>{
     nav.current.classList.toggle('navActive')
   }
@@ -31,18 +30,15 @@ const Header = () => {
           </nav>
           <div className="profile">
             <div className="toggleProfile">
-              {/* {user ? (
-                <div className="profileImg" title="luffy">
-                  <img src="./img/luffy.png" alt="" />
+              {user ? (
+                <div className="profileImg" title={user.displayName}>
+                  <img src={user.photoURL} alt={user.displayName} />
                 </div>
               ) : (
                 <div className="login">
                   <Link to="/login">Login</Link>
                 </div>
-              )} */}
-              <div className="login">
-                  <Link to="/login">Login</Link>
-                </div>
+              )}
             </div>
             <div className="themeBtn">
               <div className="line">
