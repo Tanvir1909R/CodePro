@@ -31,3 +31,9 @@
     color: white;
     margin: 10px 0;
 }
+
+@media(max-width:760px){
+  .checkoutCard {
+    width: 70%;
+  }
+}

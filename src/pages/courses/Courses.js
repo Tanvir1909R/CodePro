@@ -17,7 +17,7 @@ const Courses = () => {
     <section>
       <div className="container">
         <div className="coursesWrapper">
-          <div>
+          <div className="navWrapper">
           <div className="coursesNav">
             {categories.map((category) => (
               <Category key={category.id} category={category} />
