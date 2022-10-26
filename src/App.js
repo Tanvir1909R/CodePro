@@ -16,6 +16,7 @@ import GameDev from './pages/GameDev'
 import AllDetail from './components/allDetail/AllDetail'
 import CheckOut from './pages/checkout/CheckOut'
 import PrivateRoute from './components/PrivateRoute'
+import Error from './components/Error'
 
 
 const App = () => {
@@ -39,6 +40,7 @@ const App = () => {
           <Route path='/login' element={ <Login/> } />
           <Route path='/register' element={ <Register/> }/>
           <Route path='/checkout/:id' element={ <PrivateRoute> <CheckOut/> </PrivateRoute> }/>
+          <Route path='/*' element={ <Error/> }/>
         </Routes>
       </main>
     </>
