@@ -7,10 +7,11 @@ const GameDev = () => {
 
   useEffect(()=>{
     setLoading(true)
-    fetch('https://learning-platform-server-sage.vercel.app/courses/game-development')
+    fetch('https://learning-platform-server-sage.vercel.app/courses')
     .then(res => res.json())
     .then(data => {
-      setCourses(data)
+      const courses = data.filter(course => course.category === 'game-development')
+      setCourses(courses)
       setLoading(false)
     })
   },[])
@@ -23,9 +24,6 @@ const GameDev = () => {
         :
         courses.map(course => <Course key={course.id} course={course} />)
       }
-      {/* {
-        courses.map(course => <Course key={course.id} course={course} />)
-      } */}
     </div>
   )
 }

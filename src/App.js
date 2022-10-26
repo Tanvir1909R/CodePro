@@ -13,6 +13,7 @@ import BackEnd from './pages/BackEnd'
 import FullStack from './pages/FullStack'
 import AppDev from './pages/AppDev'
 import GameDev from './pages/GameDev'
+import AllDetail from './components/allDetail/AllDetail'
 
 
 const App = () => {
@@ -30,6 +31,7 @@ const App = () => {
               <Route path='app-development' element={ <AppDev /> } />
               <Route path='game-development' element={ <GameDev/> } />
           </Route>
+          <Route path='/courses/detail/:id' element={ <AllDetail/> }/>
           <Route path='/faq' element={ <Faq/> } />
           <Route path='/blog' element={ <Blog /> } />
           <Route path='/login' element={ <Login/> } />

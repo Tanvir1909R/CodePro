@@ -13,8 +13,6 @@ const Courses = () => {
       .catch((e) => console.log(e.message));
   }, []);
 
-  console.log(categories);
-
   return (
     <section>
       <div className="container">

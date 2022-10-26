@@ -7,10 +7,11 @@ const FrontEnd = () => {
 
   useEffect(()=>{
     setLoading(true)
-    fetch('https://learning-platform-server-sage.vercel.app/courses/front-end')
+    fetch('https://learning-platform-server-sage.vercel.app/courses')
     .then(res => res.json())
     .then(data => {
-      setCourses(data)
+      const courses = data.filter(course => course.category === 'front-end')
+      setCourses(courses)
       setLoading(false)
     })
   },[])
@@ -23,9 +24,6 @@ const FrontEnd = () => {
         :
         courses.map(course => <Course key={course.id} course={course} />)
       }
-      {/* {
-        courses.map(course => <Course key={course.id} course={course} />)
-      } */}
     </div>
   )
 }
