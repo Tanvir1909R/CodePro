@@ -17,6 +17,7 @@ import AllDetail from './components/allDetail/AllDetail'
 import CheckOut from './pages/checkout/CheckOut'
 import PrivateRoute from './components/PrivateRoute'
 import Error from './components/Error'
+import Footer from './components/footer/Footer'
 
 
 const App = () => {
@@ -43,6 +44,9 @@ const App = () => {
           <Route path='/*' element={ <Error/> }/>
         </Routes>
       </main>
+      <footer>
+        <Footer/>
+      </footer>
     </>
   )
 }

@@ -1,0 +1,41 @@
+footer{
+    background-color: var(--headingColor);
+}
+footer h2{
+    color: white;
+    margin-bottom: 20px;
+}
+footer p{
+    color: #aaaaaa
+}
+.footerWrapper{
+    padding: 4rem 1rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+}
+.footerLogoSec .logo a span{
+    color: white;
+}
+.footerLogoSec .logo{
+    margin-bottom: 20px;
+}
+
+.social{
+    color: #aaaaaa;
+    font-size: 1.1rem;
+    margin-top: 20px;
+}
+
+.social svg{
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+@media (max-width:760px){
+    .footerWrapper{
+        grid-template-columns: repeat(1, 1fr);
+        justify-items: start;
+        grid-gap: 20px;
+    }
+}
