@@ -2,13 +2,19 @@ import React, { useContext, useRef } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { authContext } from "../../contexts/UserContext";
 import { AiOutlineBars } from 'react-icons/ai'
+import {BiLogOut} from 'react-icons/bi'
 import "./header.css";
 
 const Header = () => {
-  const { user } = useContext(authContext);
+  const { user, logOut } = useContext(authContext);
   const nav = useRef(null)
   const handleNav = ()=>{
     nav.current.classList.toggle('navActive')
+  }
+
+  const handleLogOut = ()=>{
+    logOut()
+    .catch(e => console.log(e.message))
   }
 
   return (
@@ -31,9 +37,14 @@ const Header = () => {
           <div className="profile">
             <div className="toggleProfile">
               {user ? (
+                <>
+                <div style={{marginRight:"20px", cursor:"pointer", fontSize:"1.2rem", display:"flex", alignItems:"center"}} onClick={handleLogOut}>
+                  <BiLogOut />
+                </div>
                 <div className="profileImg" title={user.displayName}>
                   <img src={user.photoURL} alt={user.displayName} />
                 </div>
+                </>
               ) : (
                 <div className="login">
                   <Link to="/login">Login</Link>

@@ -7,7 +7,7 @@ import { authContext } from "../../contexts/UserContext";
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 
 const Login = () => {
-  const { providerLogin } = useContext(authContext);
+  const { providerLogin, logIn } = useContext(authContext);
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider()
   const handleGoogleLogin = ()=>{
@@ -20,11 +20,24 @@ const Login = () => {
     .then(res => console.log(res.user))
     .catch(e => console.log(e.message))
   }
+
+  const handleLogin = (e)=>{
+    e.preventDefault();
+    const form = e.target;
+
+    const email = form.email.value;
+    const password = form.password.value;
+
+    logIn(email, password)
+    .then(res => console.log(res.user))
+    .catch(e => console.log(e.message))
+  }
+
   return (
     <section>
       <div className="container">
         <div className="loginWrapper">
-          <form>
+          <form onSubmit={handleLogin}>
             <h1>Login</h1>
             <div className="inputFiled">
               <input type="email" placeholder="Enter email" name="email" />

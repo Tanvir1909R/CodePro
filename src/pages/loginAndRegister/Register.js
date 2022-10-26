@@ -1,12 +1,41 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { authContext } from '../../contexts/UserContext'
 
 const Register = () => {
+  const { createUser, updateUser } = useContext(authContext);
+
+  const updatePro = (name, url)=>{
+    const info = {
+      displayName: name,
+      photoURL: url
+    }
+    updateUser(info)
+    .catch(e => console.log(e.message))
+  }
+
+  const handleSubmit = (e)=>{
+    e.preventDefault();
+    const form = e.target;
+
+    const name = form.name.value;
+    const url = form.url.value;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    createUser(email, password)
+    .then(res =>{
+      console.log(res.user);
+      updatePro(name, url)
+    })
+    .catch(e => console.log(e.message))
+  }
+
   return (
     <section>
       <div className="container">
         <div className="loginWrapper">
-          <form>
+          <form onSubmit={handleSubmit}>
             <h1>Register Now </h1>
             <div className="inputFiled">
             <input type="text" placeholder="Enter full name" name="name" />
