@@ -16,12 +16,20 @@ const Login = () => {
   const githubProvider = new GithubAuthProvider();
   const handleGoogleLogin = ()=>{
     providerLogin(googleProvider)
-    .then(res => console.log(res.user))
+    .then(res => {
+      console.log(res.user);
+      navigate(from, {replace:true})
+      setError('')
+    })
     .catch(e => console.log(e.message))
   }
   const handleGithubLogin = ()=>{
     providerLogin(githubProvider)
-    .then(res => console.log(res.user))
+    .then(res => {
+      console.log(res.user);
+      navigate(from, {replace:true})
+      setError('')
+    })
     .catch(e => console.log(e.message))
   }
 
