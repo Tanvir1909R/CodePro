@@ -97,7 +97,7 @@ strong{
 .courseBody h1{
   margin: 20px 0;
 }
-.courseBody a{
+.courseBtn{
   font-size: 1.1rem;
   padding: .5rem .7rem;
   background-color: var(--themeColor);
